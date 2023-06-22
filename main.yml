@@ -2,13 +2,6 @@
 - name: Computer configuration
   hosts: win
 
-  pre_tasks:
-    - name: Include playbook user configuration.
-      ansible.builtin.include_vars: "{{ item }}"
-      with_fileglob:
-        - "{{ role }}.yml"
-      tags: ["always"]
-
   roles:
     - common
 
@@ -20,5 +13,8 @@
 
 
   tasks:
+    - name: Include role.
+      include_role:
+        name: accounting
 
 
