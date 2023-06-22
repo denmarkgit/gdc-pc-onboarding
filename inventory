@@ -1,0 +1,17 @@
+[win]
+192.168.1.26
+#this is just a test
+
+[nas]
+192.168.1.10 ansible_user=denmark ansible_python_interpreter=/share/ZFS530_DATA/.qpkg/Python3/python3/bin/python3
+
+
+[win:vars]
+ansible_user=ansible
+ansible_password=G00dw1ndC0rp
+#ansible_port=22
+ansible_connection=ssh
+ansible_shell_type=cmd
+ansible_ssh_common_args=-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+ansible_ssh_retries=3
+ansible_become_method=runas
