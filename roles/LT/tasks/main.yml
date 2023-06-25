@@ -1,0 +1,5 @@
+---
+- name: message
+  debug:
+    - "this is a test message"
+
