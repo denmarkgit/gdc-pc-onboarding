@@ -1,0 +1,157 @@
+---
+##############################
+### Computer Configuration ###
+##############################
+# enable administrator
+administrator: true
+
+# timezone
+set_timezone: true
+
+# updates
+install_windows_updates: false
+windows_updates_reboot: false
+update_categories:
+  - "*"
+
+# installed apps via chocolatey
+install_chocolatey_packages: false
+choco_installed_packages:
+  # installs 2019.2.2.20191 version of the adobe reader
+  - name: adobereader
+    version: "2022.2.20191"
+  - name: googlechrome
+    state: latest
+  - name: 7zip
+    state: latest
+  - name: netextender
+    state: latest
+
+# explorer
+configure_explorer: true
+
+# taskbar
+configure_taskbar: true
+
+# start menu
+configure_start_menu: true
+
+# mouse acceleration
+disable_mouse_acceleration: true
+
+# map public drive
+map_public: false
+
+# prt-gdc-kyocera01
+install_kyocera: false
+
+PrinterName: "prt-gdc-kyocera01-accounting-Letter Legal"
+PrinterPortName: "Kyocera01"
+PrinterIP: "192.168.1.200"
+PrintDriverName: "Kyocera ECOSYS M3645idn KX"
+
+# Install prt-gdc-imagerunner01
+prt_imagerunner: false
+
+IRPrinterName: "prt-gdc-imagerunner01-purchasing-11x7"
+IRPrinterPortName: "imagerunner01"
+IRPrinterIP: "192.168.1.160"
+IRPrintDriverName: "Canon Generic Plus PCL6 V272"
+
+configure_hostname: true
+
+##########################
+### User Configuration ###
+##########################
+
+add_new_account: true
+
+#List of all companies
+# mall
+# gbr
+# pal
+# gdc
+# ambak
+company: ambak
+
+# List of type of device
+# DT
+# LT
+# SV
+# POS
+# MAC
+device_type: LT
+
+# Input new account info here
+first_name: Netasha
+last_name:  Santos
+win_password: "P@ssw0rd01"
+
+# Do not edit this part
+win_full_name: "{{ first_name }} {{ last_name }}"
+  #grab_first_letter: "{{ last_name | regex_search('^[a-zA-Z]')}}"
+win_user_name: "{{ first_name | lower }}.{{ last_name | lower }}"
+custom_hostname: "{{ device_type }}-{{ first_name }}{{ last_name }}"
+
+# install mesh central
+install_rms: true
+rms_path: '\\192.168.1.10\Public\Software\rms\'
+
+change_power_plan: true
+# high_performance
+# balanced
+# power_saver
+power_plan: "high_performance"
+
+remove_bloatware: true
+bloatware:
+  - User Manuals
+  -  Lenovo Photo Master
+  - Microsoft.BingNews
+  - Microsoft.BingWeather
+  - Microsoft.GamingApp
+  - Microsoft.GetHelp
+  - Microsoft.Getstarted
+  # - Microsoft.Messaging
+  - Microsoft.Microsoft3DViewer
+  - Microsoft.MicrosoftOfficeHub
+  - Microsoft.MicrosoftSolitaireCollection
+  - Microsoft.MicrosoftStickyNotes
+  - Microsoft.MixedReality.Portal
+  # - Microsoft.MSPaint
+  - Microsoft.Office.OneNote
+  - Microsoft.OneConnect
+  - Microsoft.People
+  - Microsoft.PowerAutomateDesktop
+  - Microsoft.Print3D
+  - Microsoft.ScreenSketch
+  - Microsoft.SkypeApp
+  - Microsoft.Todos
+  - Microsoft.Windows.Photos
+  - Microsoft.WindowsAlarms
+  # - Microsoft.WindowsCalculator
+  - Microsoft.Wallet
+  - Microsoft.WindowsCamera
+  # - microsoft.windowscommunicationsapps
+  - Microsoft.WindowsFeedbackHub
+  - Microsoft.WindowsMaps
+  - Microsoft.WindowsSoundRecorder
+  - Microsoft.Xbox
+  - Microsoft.Xbox.TCUI
+  - Microsoft.XboxApp
+  - Microsoft.XboxGameOverlay
+  - Microsoft.XboxSpeechToTextOverlay
+  # - Microsoft.YourPhone
+  - Microsoft.ZuneMusic
+  - Microsoft.ZuneVideo
+  - MicrosoftTeams
+  - TikTok
+  - ESPN
+
+map_accounting_drive: false
+
+nas_ip: 192.168.1.10
+
+add_explorer_shortcut: true
+
+sage_rdp: true
