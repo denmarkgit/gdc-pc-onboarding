@@ -1,8 +1,8 @@
 ---
 - name: Enable administrator.
   ansible.builtin.import_tasks:
-    file: tasks/administrator.yml
-  when: install_windows_updates
+    file: administrator.yml
+  when: administrator
   tags: ["administrator"]
 
     #- name: Set timezone
