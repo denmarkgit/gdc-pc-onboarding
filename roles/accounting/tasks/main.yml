@@ -1,7 +1,2 @@
 ---
 
-- name: include var
-  include_vars: "{{ ansible_hostname }}.yml"
-
-- name: include var
-  include_tasks: setup-{{ ansible_hostname }}.yml

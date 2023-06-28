@@ -1,7 +1,0 @@
----
-- hosts: win
-
-  tasks:
-    - name: debugging
-      debug:
-        msg: "this is a test"

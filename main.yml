@@ -1,20 +1,28 @@
 ---
-- name: Computer configuration
-  hosts: win
+- hosts: win
+
+  pre_tasks:
+
+    - set_fact:
+        device_config: "{{ ansible_hostname.split('-') }}"
+
+    - set_fact:
+        device_company: "{{  device_config.0 }}"
+        device_role: "{{  device_config.1 }}"
+        device_type: "{{  device_config.2 }}"
+        employee_name: "{{  device_config.3 }}"
+        employee_surname: "{{  device_config.4 }}"
+
+    - debug:
+        msg:
+          - "{{ device_role }}"
+          - "{{ employee_surname}}"
 
   roles:
     - common
 
-  handlers:
-    - name: Configure Firewall rules (RDS).
-      ansible.windows.win_shell: >
-        "{{ 'Enable-NetFirewallRule' if remote_desktop_enabled else 'Disable-NetFirewallRule' }}
-        -DisplayGroup 'Remotedesktop'"
-
-
   tasks:
-    - name: Include role.
-      include_role:
-        name: {{ COMPUTERNAME }}
 
+    - include_role:
+        name: "{{ device_role }}"
 

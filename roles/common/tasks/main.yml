@@ -1,2 +1,4 @@
 ---
-- name: Include OS
+- name: 'Running the common role'
+  debug:
+    msg: "{{ device_role }}"
