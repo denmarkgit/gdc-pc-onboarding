@@ -1,11 +1,7 @@
 ---
-##############################
-### Computer Configuration ###
-##############################
-# enable administrator
 administrator: true
+admin_password: 'G00dw1ndC0rp'
 
-# timezone
 set_timezone: true
 
 # updates
