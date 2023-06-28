@@ -1,6 +1,9 @@
 ---
 - hosts: win
 
+  # The hostname will determine the device role and username
+  # sample hostname gdc-accounting-dt-name-surname
+  # hostname will be split and be put to variables needed for the playbook
   pre_tasks:
 
     - set_fact:
@@ -16,7 +19,7 @@
     - debug:
         msg:
           - "{{ device_role }}"
-          - "{{ employee_surname}}"
+          - "{{ employee_surname }}"
 
   roles:
     - common
@@ -25,4 +28,3 @@
 
     - include_role:
         name: "{{ device_role }}"
-

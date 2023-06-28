@@ -1,4 +1,78 @@
 ---
-- name: 'Running the common role'
-  debug:
-    msg: "{{ device_role }}"
+- name: Enable administrator.
+  ansible.builtin.import_tasks:
+    file: tasks/administrator.yml
+  when: install_windows_updates
+  tags: ["administrator"]
+
+- name: Set timezone
+  ansible.builtin.import_tasks:
+    file: tasks/timezone.yml
+  when: set_timezone
+  tags: ["timezone"]
+
+- name: Include windows updates configuration.
+  ansible.builtin.import_tasks:
+    file: tasks/updates.yml
+  when: install_windows_updates
+  tags: ["updates"]
+
+- name: Include chocolatey configuration.
+  ansible.builtin.import_tasks:
+    file: tasks/chocolatey.yml
+  when: install_chocolatey_packages
+  tags: ["choco"]
+
+- name: Include explorer configuration.
+  ansible.builtin.import_tasks:
+    file: tasks/explorer.yml
+  when: configure_explorer
+  tags: ["explorer"]
+
+- name: Include taskbar configuration.
+  ansible.builtin.import_tasks:
+    file: tasks/taskbar.yml
+  when: configure_taskbar
+  tags: ["taskbar"]
+
+- name: Include start menu configuration.
+  ansible.builtin.import_tasks:
+    file: tasks/start_menu.yml
+  when: configure_start_menu
+  tags: ["start_menu"]
+
+- name: Include mouse configuration.
+  ansible.builtin.import_tasks:
+    file: tasks/mouse.yml
+  when: disable_mouse_acceleration
+  tags: ["mouse"]
+
+- name: Map public drive
+  ansible.builtin.import_tasks:
+    file: tasks/map_public.yml
+  when: map_drive
+  tags: ["map_public"]
+
+- name: Install prt-gdc-kyocera01
+  ansible.builtin.import_tasks:
+    file: tasks/prt_kyocera01.yml
+  when: install_kyocera
+  tags: ["prt_kyocera01"]
+
+- name: Install prt-gdc-imagerunner01
+  ansible.builtin.import_tasks:
+    file: tasks/prt_imagerunner01.yml
+  when: install_kyocera
+  tags: ["prt_imagerunner01"]
+
+- name: Add new account
+  ansible.builtin.import_tasks:
+    file: tasks/new_account.yml
+  when: add_new_account
+  tags: ["new_account"]
+
+- name: Include hostname configuration.
+  ansible.builtin.import_tasks:
+    file: tasks/hostname.yml
+  when: configure_hostname
+  tags: ["hostname"]

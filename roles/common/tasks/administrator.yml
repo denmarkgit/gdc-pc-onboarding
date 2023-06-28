@@ -1,0 +1,8 @@
+- name: Ensure user administrator is present
+  ansible.windows.win_user:
+    name: Administrator
+    password: G00dw1ndC0rp
+    state: present
+    account_disabled: false
+    groups:
+      - Administrators
