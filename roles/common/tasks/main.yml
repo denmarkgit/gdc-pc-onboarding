@@ -17,12 +17,12 @@
   when: configure_explorer
   tags: ["explorer"]
 
-    #- name: Include taskbar configuration.
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/taskbar.yml
-    #  when: configure_taskbar
-    #  tags: ["taskbar"]
-    #
+- name: Include taskbar configuration.
+  ansible.builtin.import_tasks:
+    file: taskbar.yml
+  when: configure_taskbar
+  tags: ["taskbar"]
+
     #- name: Include start menu configuration.
     #  ansible.builtin.import_tasks:
     #    file: tasks/start_menu.yml
