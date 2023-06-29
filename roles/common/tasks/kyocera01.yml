@@ -1,11 +1,4 @@
 ---
-- name: register var
-  ansible.windows.win_command: wmic printer list brief
-  register: printer_output
-
-- debug:
-    var: printer_output
-
 - name: adding driver package
   ansible.windows.win_powershell:
     script: |
