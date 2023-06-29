@@ -32,7 +32,7 @@ choco_installed_packages:
 
 # prt-gdc-kyocera01
 install_kyocera: true
-PrinterName: "gdc-kyocera01-accounting-Letter Legal"
+PrinterName: "prt-gdc-kyocera01-accounting-Letter Legal"
 PrinterPortName: "Kyocera01"
 PrinterIP: "192.168.1.200"
 PrintDriverName: "Kyocera ECOSYS M3645idn KX"
