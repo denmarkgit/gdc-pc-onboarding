@@ -7,7 +7,7 @@
 - name: register a var
   ansible.windows.win_powershell:
     script: |
-      Select-String "{{ PrinterPortName }}")
+      Select-String "{{ PrinterPortName }}"
   register: check_port
 
 - debug:
