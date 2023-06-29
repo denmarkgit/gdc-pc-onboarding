@@ -11,24 +11,12 @@
   when: set_timezone
   tags: ["timezone"]
 
-    #- name: Include windows updates configuration.
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/updates.yml
-    #  when: install_windows_updates
-    #  tags: ["updates"]
-    #
-    #- name: Include chocolatey configuration.
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/chocolatey.yml
-    #  when: install_chocolatey_packages
-    #  tags: ["choco"]
-    #
-    #- name: Include explorer configuration.
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/explorer.yml
-    #  when: configure_explorer
-    #  tags: ["explorer"]
-    #
+- name: Include explorer configuration.
+  ansible.builtin.import_tasks:
+    file: explorer.yml
+  when: configure_explorer
+  tags: ["explorer"]
+
     #- name: Include taskbar configuration.
     #  ansible.builtin.import_tasks:
     #    file: tasks/taskbar.yml

@@ -5,6 +5,8 @@ admin_password: 'G00dw1ndC0rp'
 set_timezone: true
 timezone: 'West Pacific Standard Time'
 
+configure_explorer: true
+
 # updates
 install_windows_updates: false
 windows_updates_reboot: false
