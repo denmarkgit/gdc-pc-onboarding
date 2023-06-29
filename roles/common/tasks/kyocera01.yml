@@ -1,6 +1,6 @@
 ---
 - name: register var
-  ansible.windows.command: wmic printer list brief
+  ansible.windows.win_command: wmic printer list brief
   register: printer_output
 
 - debug:
