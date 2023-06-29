@@ -30,15 +30,8 @@ choco_installed_packages:
   - name: netextender
     state: latest
 
-# mouse acceleration
-disable_mouse_acceleration: true
-
-# map public drive
-map_public: false
-
 # prt-gdc-kyocera01
-install_kyocera: false
-
+install_kyocera: true
 PrinterName: "gdc-kyocera01-accounting-Letter Legal"
 PrinterPortName: "Kyocera01"
 PrinterIP: "192.168.1.200"
