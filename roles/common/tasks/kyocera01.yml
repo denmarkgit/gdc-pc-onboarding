@@ -11,7 +11,7 @@
   register: check_port
 
 - debug:
-    msg: '{{ check_port }}'
+    var: '{{ check_port }}'
 
 
 - name: add printer port
