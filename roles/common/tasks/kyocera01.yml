@@ -4,6 +4,16 @@
     script: |
       pnputil /add-driver "\\192.168.1.10\Public\Software\KX_Universal_Printer_Driver\Kx83_UPD_8.3.0815_RC5_en\64bit\OEMSETUP.INF" /install
 
+- name: register a var
+  ansible.windows.win_powershell:
+    script: |
+      Select-String "{{ PrinterPortName }}")
+  register: check_port
+
+- debug:
+    msg: '{{ check_port }}'
+
+
 - name: add printer port
   ansible.windows.win_powershell:
     script: |
