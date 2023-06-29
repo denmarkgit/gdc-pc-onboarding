@@ -9,9 +9,8 @@
     script: |
       Select-String "{{ PrinterPortName }}")
   register: check_port
-
-- debug:
-    var: '{{ check_port }}'
+  debug:
+    var: check_port
 
 
 - name: add printer port
