@@ -1,18 +1,15 @@
 ---
+- name: register var
+  ansible.windows.command: wmic printer list brief
+  register: printer_output
+
+- debug:
+    var: printer_output
+
 - name: adding driver package
   ansible.windows.win_powershell:
     script: |
       pnputil /add-driver "\\192.168.1.10\Public\Software\KX_Universal_Printer_Driver\Kx83_UPD_8.3.0815_RC5_en\64bit\OEMSETUP.INF" /install
-
-- name: register a var
-  ansible.windows.win_powershell:
-    script: |
-      Select-String "{{ PrinterPortName }}" -Force
-  register: check_port
-
-- debug:
-    var: check_port
-
 
 - name: add printer port
   ansible.windows.win_powershell:
