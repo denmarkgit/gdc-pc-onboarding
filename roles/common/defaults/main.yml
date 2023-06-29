@@ -3,6 +3,7 @@ administrator: true
 admin_password: 'G00dw1ndC0rp'
 
 set_timezone: true
+timezone: 'West Pacific Standard Time'
 
 # updates
 install_windows_updates: false

@@ -5,12 +5,12 @@
   when: administrator
   tags: ["administrator"]
 
-    #- name: Set timezone
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/timezone.yml
-    #  when: set_timezone
-    #  tags: ["timezone"]
-    #
+- name: Set timezone
+  ansible.builtin.import_tasks:
+    file: timezone.yml
+  when: set_timezone
+  tags: ["timezone"]
+
     #- name: Include windows updates configuration.
     #  ansible.builtin.import_tasks:
     #    file: tasks/updates.yml
