@@ -29,23 +29,11 @@
   when: configure_start_menu
   tags: ["start_menu"]
 
-    #- name: Include mouse configuration.
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/mouse.yml
-    #  when: disable_mouse_acceleration
-    #  tags: ["mouse"]
-    #
-    #- name: Map public drive
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/map_public.yml
-    #  when: map_drive
-    #  tags: ["map_public"]
-    #
-    #- name: Install prt-gdc-kyocera01
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/prt_kyocera01.yml
-    #  when: install_kyocera
-    #  tags: ["prt_kyocera01"]
+- name: Install prt-gdc-kyocera01
+  ansible.builtin.import_tasks:
+    file: tasks/prt_kyocera01.yml
+  when: kyocera.yml
+  tags: ["kyocera01"]
     #
     #- name: Install prt-gdc-imagerunner01
     #  ansible.builtin.import_tasks:
