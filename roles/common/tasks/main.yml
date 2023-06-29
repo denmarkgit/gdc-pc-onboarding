@@ -23,12 +23,12 @@
   when: configure_taskbar
   tags: ["taskbar"]
 
-    #- name: Include start menu configuration.
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/start_menu.yml
-    #  when: configure_start_menu
-    #  tags: ["start_menu"]
-    #
+- name: Include start menu configuration.
+  ansible.builtin.import_tasks:
+    file: tasks/start_menu.yml
+  when: configure_start_menu
+  tags: ["start_menu"]
+
     #- name: Include mouse configuration.
     #  ansible.builtin.import_tasks:
     #    file: tasks/mouse.yml

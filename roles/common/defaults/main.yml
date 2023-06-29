@@ -9,6 +9,8 @@ configure_explorer: true
 
 configure_taskbar: true
 
+configure_start_menu: true
+
 # updates
 install_windows_updates: false
 windows_updates_reboot: false
@@ -27,10 +29,6 @@ choco_installed_packages:
     state: latest
   - name: netextender
     state: latest
-
-
-# start menu
-configure_start_menu: true
 
 # mouse acceleration
 disable_mouse_acceleration: true
