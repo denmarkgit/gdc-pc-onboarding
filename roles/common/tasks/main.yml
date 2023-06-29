@@ -31,8 +31,8 @@
 
 - name: Install prt-gdc-kyocera01
   ansible.builtin.import_tasks:
-    file: tasks/prt_kyocera01.yml
-  when: kyocera.yml
+    file: kyocera01.yml
+  when: install_kyocera
   tags: ["kyocera01"]
     #
     #- name: Install prt-gdc-imagerunner01
