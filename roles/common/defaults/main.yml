@@ -145,3 +145,5 @@ sage_rdp: true
 installer_folder: true
 
 cp_installer: true
+
+unzip_installer: true
