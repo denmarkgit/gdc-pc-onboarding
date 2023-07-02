@@ -143,3 +143,5 @@ add_explorer_shortcut: true
 sage_rdp: true
 
 installer_folder: true
+
+cp_installer: true
