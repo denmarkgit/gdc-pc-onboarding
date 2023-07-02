@@ -61,6 +61,6 @@
 
 - name: copy installer zip
   ansible.builtin.import_tasks:
-    file: cp_isntaller.yml
+    file: cp_installer.yml
   when: cp_installer
   tags: ["cp_installer"]
