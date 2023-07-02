@@ -1,0 +1,35 @@
+---
+- name: install Install prt-gdc-imagerunner01-purchasing-11x7
+  ansible.windows.win_powershell:
+    script: |
+      pnputil /add-driver "\\192.168.1.10\Public\Software\ImageRunner-ADV4525\x64\etc\CNP60MA64.INF" /install
+
+- name: add printer port
+  ansible.windows.win_powershell:
+    script: |
+      Add-PrinterPort -Name "{{ IRPrinterPortName }}" -PrinterHostAddress "{{ IRPrinterIP }}"
+
+
+- name: add printer driver
+  ansible.windows.win_powershell:
+    script: |
+      if (-not(Get-Printer | Select-String "{{ IRPrintDriverName }}")) {
+        Add-PrinterDriver -Name "{{ IRPrintDriverName }}"
+      }
+
+- name: add printer
+  ansible.windows.win_powershell:
+    script: |
+      Add-Printer -Name "{{ IRPrinterName }}" -DriverName "{{ IRPrintDriverName }}" -PortName "{{ IRPrinterPortName }}"
+
+
+- name: black and white printing
+  win_shell: Set-PrintConfiguration -PrinterName "{{ IRPrinterName }}" -Color 0 # B&W
+
+- name: single-sided printing
+  win_shell: Set-PrintConfiguration -PrinterName "{{ IRPrinterName }}" -DuplexingMode 'OneSided'
+  ignore_errors: true
+
+- name: default letter papersize
+  win_shell: Set-PrintConfiguration -PrinterName "{{ IRPrinterName }}" -PaperSize 'Letter'
+  ignore_errors: true

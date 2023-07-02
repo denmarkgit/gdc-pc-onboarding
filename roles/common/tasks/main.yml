@@ -34,21 +34,21 @@
     file: kyocera01.yml
   when: install_kyocera
   tags: ["kyocera01"]
-    #
-    #- name: Install prt-gdc-imagerunner01
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/prt_imagerunner01.yml
-    #  when: install_kyocera
-    #  tags: ["prt_imagerunner01"]
-    #
-    #- name: Add new account
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/new_account.yml
-    #  when: add_new_account
-    #  tags: ["new_account"]
-    #
-    #- name: Include hostname configuration.
-    #  ansible.builtin.import_tasks:
-    #    file: tasks/hostname.yml
-    #  when: configure_hostname
-    #  tags: ["hostname"]
+
+- name: Install prt-gdc-imagerunner01
+  ansible.builtin.import_tasks:
+    file: imgr01.yml
+  when: install_imgr01
+  tags: ["imgr01"]
+
+- name: Add new account
+  ansible.builtin.import_tasks:
+    file: account.yml
+  when: new_account
+  tags: ["account"]
+
+- name: Include hostname configuration.
+  ansible.builtin.import_tasks:
+    file: hostname.yml
+  when: configure_hostname
+  tags: ["hostname"]

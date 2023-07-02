@@ -1,4 +1,7 @@
 ---
+#- name: adding driver package
+#  ansible.windows.win_command: pnputil /add-driver "C:\Users\ansible\Desktop\64bit\OEMSETUP.INF" /install
+
 - name: adding driver package
   ansible.windows.win_powershell:
     script: |

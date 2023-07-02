@@ -1,0 +1,21 @@
+---
+
+- debug:
+    msg: '{{ device_company }}'
+
+- name: create new account
+  ansible.windows.win_user:
+    fullName: "{{ win_full_name }}"
+    name: "{{ win_user_name }}"
+    password: "{{ win_password }}"
+    state: present
+    account_disabled: no
+    password_never_expires: yes
+    groups:
+      - users
+      - administrators
+
+- name: set autologin
+  community.windows.win_auto_logon:
+    username: "{{ win_user_name }}"
+    password: "{{ win_password }}"

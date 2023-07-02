@@ -32,15 +32,15 @@ choco_installed_packages:
 
 # prt-gdc-kyocera01
 install_kyocera: true
-PrinterName: "prt-gdc-kyocera01-accounting-Letter Legal"
+PrinterName: "gdc-kyocera01-accounting-Letter Legal"
 PrinterPortName: "Kyocera01"
 PrinterIP: "192.168.1.200"
 PrintDriverName: "Kyocera ECOSYS M3645idn KX"
 
 # Install prt-gdc-imagerunner01
-prt_imagerunner: false
+install_imgr01: true
 
-IRPrinterName: "prt-gdc-imagerunner01-purchasing-11x7"
+IRPrinterName: "gdc-imgr01-purchasing-11x7"
 IRPrinterPortName: "imagerunner01"
 IRPrinterIP: "192.168.1.160"
 IRPrintDriverName: "Canon Generic Plus PCL6 V272"
@@ -51,7 +51,7 @@ configure_hostname: true
 ### User Configuration ###
 ##########################
 
-add_new_account: true
+new_account: true
 
 #List of all companies
 # mall
@@ -59,7 +59,7 @@ add_new_account: true
 # pal
 # gdc
 # ambak
-company: ambak
+device_company: ambak
 
 # List of type of device
 # DT
@@ -70,15 +70,14 @@ company: ambak
 device_type: LT
 
 # Input new account info here
-first_name: Netasha
-last_name:  Santos
+employee_name: Guest
+employee_surname: User
 win_password: "P@ssw0rd01"
 
 # Do not edit this part
-win_full_name: "{{ first_name }} {{ last_name }}"
-  #grab_first_letter: "{{ last_name | regex_search('^[a-zA-Z]')}}"
-win_user_name: "{{ first_name | lower }}.{{ last_name | lower }}"
-custom_hostname: "{{ device_type }}-{{ first_name }}{{ last_name }}"
+win_full_name: "{{ employee_name}} {{ employee_surname}}"
+win_user_name: "{{ employee_name | lower }}.{{ employee_surname | lower }}"
+custom_hostname: "{{ device_type }}-{{ employee_name }}{{ employee_surname }}"
 
 # install mesh central
 install_rms: true
