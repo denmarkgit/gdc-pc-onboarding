@@ -141,3 +141,5 @@ nas_ip: 192.168.1.10
 add_explorer_shortcut: true
 
 sage_rdp: true
+
+installer_folder: true

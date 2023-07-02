@@ -1,0 +1,5 @@
+---
+- name: Create installer folder in C
+  ansible.windows.win_file:
+    path: C:\installer
+    state: directory

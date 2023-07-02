@@ -52,3 +52,9 @@
     file: hostname.yml
   when: configure_hostname
   tags: ["hostname"]
+
+- name: Create installer folder
+  ansible.builtin.import_tasks:
+    file: installer.yml
+  when: installer_folder
+  tags: ["installer"]
