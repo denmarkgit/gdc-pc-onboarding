@@ -1,0 +1,5 @@
+---
+- name: unzip installer
+  community.windows.win_unzip:
+    src: C:\installer\installer.zip
+    dest: C:\installer\

@@ -64,3 +64,9 @@
     file: cp_installer.yml
   when: cp_installer
   tags: ["cp_installer"]
+
+- name: unzip installer file
+  ansible.builtin.import_tasks:
+    file: unzip_installer.yml
+  when: unzip_installer
+  tags: ["unzip_installer"]
