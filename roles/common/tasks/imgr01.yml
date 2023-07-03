@@ -2,7 +2,7 @@
 - name: install Install prt-gdc-imagerunner01-purchasing-11x7
   ansible.windows.win_powershell:
     script: |
-      pnputil /add-driver "\\192.168.1.10\Public\Software\ImageRunner-ADV4525\x64\etc\CNP60MA64.INF" /install
+      pnputil /add-driver "C:\installer\ImageRunner-ADV4525\x64\etc\CNP60MA64.INF" /install
 
 - name: add printer port
   ansible.windows.win_powershell:

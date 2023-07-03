@@ -1,2 +1,4 @@
 ---
+- debug:
+    msg: "starting the accounting role"
 

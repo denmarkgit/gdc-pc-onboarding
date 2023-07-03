@@ -16,10 +16,10 @@
         employee_name: "{{  device_config.3 }}"
         employee_surname: "{{  device_config.4 }}"
 
-    - debug:
-        msg:
-          - "{{ device_role }}"
-          - "{{ employee_surname }}"
+    - name: Warn logged in users
+      community.windows.win_msg:
+        display_seconds: 600
+        msg: "Starting automated provisioning of this PC for {{ employee_name }} user as {{ device_role }} role. Email will be sent after provisioning. Thank you."
 
   roles:
     - common
@@ -28,3 +28,11 @@
 
     - include_role:
         name: "{{ device_role }}"
+      when: device_role != 'common'
+
+    - name: Warn logged in users
+      community.windows.win_msg:
+        display_seconds: 600
+        msg: "Configuration succesfull!"
+
+

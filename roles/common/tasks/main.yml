@@ -29,6 +29,24 @@
   when: configure_start_menu
   tags: ["start_menu"]
 
+- name: Create installer folder
+  ansible.builtin.import_tasks:
+    file: installer.yml
+  when: installer_folder
+  tags: ["installer"]
+
+- name: copy installer zip
+  ansible.builtin.import_tasks:
+    file: cp_installer.yml
+  when: cp_installer
+  tags: ["cp_installer"]
+
+- name: unzip installer file
+  ansible.builtin.import_tasks:
+    file: unzip_installer.yml
+  when: unzip_installer
+  tags: ["unzip_installer"]
+
 - name: Install prt-gdc-kyocera01
   ansible.builtin.import_tasks:
     file: kyocera01.yml
@@ -53,20 +71,3 @@
   when: configure_hostname
   tags: ["hostname"]
 
-- name: Create installer folder
-  ansible.builtin.import_tasks:
-    file: installer.yml
-  when: installer_folder
-  tags: ["installer"]
-
-- name: copy installer zip
-  ansible.builtin.import_tasks:
-    file: cp_installer.yml
-  when: cp_installer
-  tags: ["cp_installer"]
-
-- name: unzip installer file
-  ansible.builtin.import_tasks:
-    file: unzip_installer.yml
-  when: unzip_installer
-  tags: ["unzip_installer"]
