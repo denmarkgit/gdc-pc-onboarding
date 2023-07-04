@@ -1,5 +1,5 @@
 ---
-- hosts: win
+- hosts: deploy
 
   # The hostname will determine the device role and username
   # sample hostname gdc-accounting-dt-name-surname

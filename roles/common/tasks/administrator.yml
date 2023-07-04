@@ -1,3 +1,4 @@
+---
 - name: Ensure user administrator is present
   ansible.windows.win_user:
     name: Administrator

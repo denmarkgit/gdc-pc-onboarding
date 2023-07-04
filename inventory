@@ -1,3 +1,7 @@
+[deploy]
+192.168.1.26
+192.168.1.200
+
 [win]
 192.168.1.26
 #this is just a test
@@ -7,6 +11,16 @@
 
 
 [win:vars]
+ansible_user=ansible
+ansible_password=G00dw1ndC0rp
+#ansible_port=22
+ansible_connection=ssh
+ansible_shell_type=cmd
+ansible_ssh_common_args=-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+ansible_ssh_retries=3
+ansible_become_method=runas
+
+[deploy:vars]
 ansible_user=ansible
 ansible_password=G00dw1ndC0rp
 #ansible_port=22
