@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# do stuff
+
+cd /home/denmark/gdc-pc-onboarding
+(
+flock -s 200
+
+# ... commands executed under lock ...
+/home/denmark/.local/bin/ansible-playbook /home/denmark/gdc-pc-onboarding/main.yml > /home/denmark/gdc-pc-onboarding/logs.txt 2>&1
+
+) 200>/tmp/ansible-playbook.lock
