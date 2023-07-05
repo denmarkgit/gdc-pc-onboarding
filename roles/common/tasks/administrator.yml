@@ -7,3 +7,15 @@
     account_disabled: false
     groups:
       - Administrators
+
+- name: Adding Guest user
+  ansible.windows.win_user:
+    fullName: "{{ guest_name }}"
+    name: "{{ guest_username }}"
+    password: "{{ guest_password }}"
+    state: present
+    account_disabled: no
+    password_never_expires: yes
+    groups:
+      - users
+

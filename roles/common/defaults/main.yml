@@ -147,3 +147,7 @@ installer_folder: true
 cp_installer: true
 
 unzip_installer: true
+
+guest_username: guest.user
+guest_name: 'guest user'
+guest_password: null
