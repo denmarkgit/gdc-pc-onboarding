@@ -151,3 +151,5 @@ unzip_installer: true
 guest_username: guest.user
 guest_name: 'guest user'
 guest_password: null
+
+nas_ip: '\\192.168.1.10\Public\Sofware'

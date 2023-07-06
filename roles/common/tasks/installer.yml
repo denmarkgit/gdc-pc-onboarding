@@ -6,7 +6,7 @@
 
 - name: Copy installer zip
   ansible.windows.win_copy:
-    src: \\192.168.1.10\Public\Software\installer.zip
+    src: "{{ nas_ip }}\installer.zip"
     dest: C:\installer
     remote_src: true
 
