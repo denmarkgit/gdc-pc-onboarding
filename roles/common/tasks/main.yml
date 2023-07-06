@@ -1,45 +1,21 @@
 ---
-- name: Adding required Accounts
-  ansible.builtin.import_tasks:
-    file: administrator.yml
-  when: administrator
-  tags: ["administrator"]
-
 - name: Set timezone
   ansible.builtin.import_tasks:
     file: timezone.yml
   when: set_timezone
   tags: ["timezone"]
 
-- name: Include explorer configuration.
+- name: Adding required Accounts
   ansible.builtin.import_tasks:
-    file: explorer.yml
-  when: configure_explorer
-  tags: ["explorer"]
+    file: administrator.yml
+  when: administrator
+  tags: ["administrator"]
 
-- name: Include start menu configuration.
-  ansible.builtin.import_tasks:
-    file: tasks/start_menu.yml
-  when: configure_start_menu
-  tags: ["start_menu"]
-
-- name: Create installer folder
+- name: Copy installer files
   ansible.builtin.import_tasks:
     file: installer.yml
   when: installer_folder
   tags: ["installer"]
-
-- name: copy installer zip
-  ansible.builtin.import_tasks:
-    file: cp_installer.yml
-  when: cp_installer
-  tags: ["cp_installer"]
-
-- name: unzip installer file
-  ansible.builtin.import_tasks:
-    file: unzip_installer.yml
-  when: unzip_installer
-  tags: ["unzip_installer"]
 
 - name: Install prt-gdc-kyocera01
   ansible.builtin.import_tasks:

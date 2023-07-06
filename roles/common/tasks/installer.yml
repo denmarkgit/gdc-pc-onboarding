@@ -3,3 +3,15 @@
   ansible.windows.win_file:
     path: C:\installer
     state: directory
+
+- name: Copy installer zip
+  ansible.windows.win_copy:
+    src: \\192.168.1.10\Public\Software\installer.zip
+    dest: C:\installer
+    remote_src: true
+
+- name: unzip installer
+  community.windows.win_unzip:
+    src: C:\installer\installer.zip
+    dest: C:\installer\
+    creates: C:\installer\rms
