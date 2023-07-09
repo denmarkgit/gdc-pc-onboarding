@@ -17,17 +17,11 @@
   when: installer_folder
   tags: ["installer"]
 
-- name: Install prt-gdc-kyocera01
+- name: Add printers
   ansible.builtin.import_tasks:
-    file: kyocera01.yml
-  when: install_kyocera
-  tags: ["kyocera01"]
-
-- name: Install prt-gdc-imagerunner01
-  ansible.builtin.import_tasks:
-    file: imgr01.yml
-  when: install_imgr01
-  tags: ["imgr01"]
+    file: printers.yml
+  when: install_printers
+  tags: ["printers"]
 
 - name: Add new account
   ansible.builtin.import_tasks:
