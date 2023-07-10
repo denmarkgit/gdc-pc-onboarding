@@ -37,6 +37,6 @@
 
 - name: Include hostname configuration.
   ansible.builtin.import_tasks:
-    file: rms.yml
-  when: install_rms
-  tags: ["rms"]
+    file: apps.yml
+  when: install_apps
+  tags: ["apps"]

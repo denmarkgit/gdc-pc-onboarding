@@ -34,5 +34,3 @@
       community.windows.win_msg:
         display_seconds: 600
         msg: "Configuration succesfull!"
-
-
