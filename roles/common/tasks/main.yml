@@ -35,3 +35,8 @@
   when: configure_hostname
   tags: ["hostname"]
 
+- name: Include hostname configuration.
+  ansible.builtin.import_tasks:
+    file: rms.yml
+  when: install_rms
+  tags: ["rms"]
