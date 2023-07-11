@@ -8,8 +8,9 @@
     state: present
   tags: ['chrome']
 
-- name: install rms
+- name: install libreOffice
   ansible.windows.win_package:
-    path: 'C:\installer\rms\{{ device_company }}.exe'
+    path: C:\installer\libreoffice.msi
     state: present
-  tags: ['rms_test']
+  tags: ['libre']
+
