@@ -14,3 +14,10 @@
     state: present
   tags: ['libre']
 
+- name: install adobereader
+  ansible.windows.win_package:
+    path: C:\installer\adobereader.exe
+    state: present
+  tags: ['adobe']
+
+
