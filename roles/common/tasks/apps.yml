@@ -1,6 +1,7 @@
 - name: install rms
   win_command:
     cmd: "{{ rms_path }}{{ device_company }}.exe -fullinstall"
+  tags: ['rms']
 
 - name: install chrome
   ansible.windows.win_package:

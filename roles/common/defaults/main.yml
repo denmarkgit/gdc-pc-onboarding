@@ -81,7 +81,7 @@ custom_hostname: "{{ device_type }}-{{ employee_name }}{{ employee_surname }}"
 
 # install mesh central
 install_rms: true
-rms_path: '\\192.168.1.10\Public\Software\rms\'
+rms_path: 'C:\Installer\rms\'
 
 change_power_plan: true
 # high_performance
