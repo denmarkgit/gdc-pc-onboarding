@@ -18,7 +18,7 @@
 
     - name: Warn logged in users
       community.windows.win_msg:
-        display_seconds: 600
+        display_seconds: 300
         msg: "Starting automated provisioning of this PC for {{ employee_name }} user as {{ device_role }} role. Email will be sent after provisioning. Thank you."
 
   roles:
@@ -30,7 +30,14 @@
         name: "{{ device_role }}"
       when: device_role != 'common'
 
+  post_task:
+
+    - name: remove privileges
+      ansible.builtin.import_tasks:
+        file: post_account.yml
+      tags: ["post_account"]
+
     - name: Warn logged in users
       community.windows.win_msg:
-        display_seconds: 600
+        display_seconds: 300
         msg: "Configuration succesfull!"
