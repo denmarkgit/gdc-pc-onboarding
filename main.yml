@@ -30,12 +30,12 @@
         name: "{{ device_role }}"
       when: device_role != 'common'
 
-  post_task:
+  post_tasks:
 
     - name: remove privileges
       ansible.builtin.import_tasks:
-        file: post_account.yml
-      tags: ["post_account"]
+        file: post_task.yml
+      tags: ["post_task"]
 
     - name: Warn logged in users
       community.windows.win_msg:
