@@ -23,6 +23,12 @@
   when: install_printers
   tags: ["printers"]
 
+- name: Include hostname configuration.
+  ansible.builtin.import_tasks:
+    file: apps.yml
+  when: install_apps
+  tags: ["apps"]
+
 - name: Add new account
   ansible.builtin.import_tasks:
     file: account.yml
@@ -35,8 +41,3 @@
   when: configure_hostname
   tags: ["hostname"]
 
-- name: Include hostname configuration.
-  ansible.builtin.import_tasks:
-    file: apps.yml
-  when: install_apps
-  tags: ["apps"]
