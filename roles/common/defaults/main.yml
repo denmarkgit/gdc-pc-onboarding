@@ -67,7 +67,7 @@ device_company: gdc
 # SV
 # POS
 # MAC
-device_type: LT
+device_type: dt
 
 # Input new account info here
 employee_name: Guest

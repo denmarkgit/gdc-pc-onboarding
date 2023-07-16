@@ -27,3 +27,10 @@
     state: present
   tags: ['7zip']
 
+- name: install netextender if using laptop
+  ansible.windows.win_package:
+    path: C:\installer\netextender.msi
+    state: present
+  tags: ['netextender']
+  when: device_type == 'lt'
+

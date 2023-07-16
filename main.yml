@@ -34,7 +34,7 @@
 
     - name: remove privileges
       ansible.builtin.import_tasks:
-        file: post_task.yml
+        file: roles/common/tasks/post_task.yml
       tags: ["post_task"]
 
     - name: Warn logged in users

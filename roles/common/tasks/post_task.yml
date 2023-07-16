@@ -1,0 +1,8 @@
+---
+- name: remove user to admin group
+  ansible.windows.win_group_membership:
+    name: Administrators
+    members:
+      - '{{ win_user_name }}'
+    state: absent
+  tags: ['post_account']
